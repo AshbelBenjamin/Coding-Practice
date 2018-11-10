@@ -1,29 +1,24 @@
-# Coding-Practice
-float x;
-float xspeed = 3;
-float y;
-float yspeed = 3;
-void setup() {
-  size(640, 360);
-  x=0;
-  y=0;
-}
-void draw() {
-  background(51);
-  
-  fill(mouseY,mouseX,random(255));
-  stroke(255);
-  ellipse(x,y, 32, 32);
-  
-  x= x+xspeed;
-  y= y+yspeed;
+# Coding-Practice - circle Fractal
 
-  if (x>width || x<0){
-    xspeed= xspeed* -1;
-  }
-  
-   if (y>height || y<0){
-    yspeed= yspeed* -1;
-  }
-
+void setup(){
+  size(400,400);
 }
+
+void draw(){
+   background(0);
+   drawCircle(width/2, height/2, 200);
+}
+
+void drawCircle(float x, float y, float d){
+ stroke(5,75,90);
+ strokeWeight(1);
+ noFill();
+ ellipse(x, y, d, d);
+ if (d> 10){
+   drawCircle(x+d/2, y, d/2);
+   drawCircle(x-d/2, y, d/2);
+   drawCircle(x, y+d/2, d/2);
+   drawCircle(x, y-d/2, d/2);
+ }
+}
+© 2018 GitHub, Inc.
