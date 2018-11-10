@@ -1,29 +1,22 @@
-# Coding-Practice
-float x;
-float xspeed = 3;
-float y;
-float yspeed = 3;
-void setup() {
-  size(640, 360);
-  x=0;
-  y=0;
+# Coding-Practice Square Fractal Experiement
+void setup(){
+  size(400,400);
 }
-void draw() {
-  background(51);
-  
-  fill(mouseY,mouseX,random(255));
-  stroke(255);
-  ellipse(x,y, 32, 32);
-  
-  x= x+xspeed;
-  y= y+yspeed;
 
-  if (x>width || x<0){
-    xspeed= xspeed* -1;
-  }
-  
-   if (y>height || y<0){
-    yspeed= yspeed* -1;
-  }
+void draw(){ 
+ background(0);
+ DrawSquare(width/2, height/2, 150);
+}
 
+void DrawSquare(float x, float y, float LW){
+ stroke(175,15,10);
+ strokeWeight(1);
+ noFill();
+rect(x,y,LW,LW);
+if (LW > 10){
+  DrawSquare(x+LW/2,y,LW/2);
+  DrawSquare(x-LW/2,y,LW/2);
+  DrawSquare(x,y+LW/2,LW/2);
+  DrawSquare(x,y-LW/2,LW/2);
+}
 }
