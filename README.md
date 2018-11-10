@@ -1,1 +1,1 @@
-# Coding Practice move mouse to the right to make stars move faster
+# Coding Practice Left click with mouse to activate the animation 
